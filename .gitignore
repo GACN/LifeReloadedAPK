@@ -1,0 +1,27 @@
+# Build outputs
+build*/
+dist*/
+*.idsig
+*.keystore
+*.jks
+*.apk
+
+# Test generated bundles
+webtest12/current_script.js
+webtest12/user_10_rounds*.js
+
+# Python/cache
+__pycache__/
+*.pyc
+
+# Scratch dirs from manual Android packaging
+axseed/
+aapt2test/
+builda*/
+tmpres/
+$HOME/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
