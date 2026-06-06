@@ -7,19 +7,20 @@ dist*/
 *.apk
 
 # Test generated bundles
-webtest12/current_script.js
-webtest12/user_10_rounds*.js
+webtest12/
 
 # Python/cache
 __pycache__/
 *.pyc
 
-# Scratch dirs from manual Android packaging
+# Scratch dirs/scripts from manual Android packaging
 axseed/
 aapt2test/
 builda*/
 tmpres/
 $HOME/
+patch_life_manifest_modern.py
+scan_manifest.py
 
 # OS/editor
 .DS_Store
