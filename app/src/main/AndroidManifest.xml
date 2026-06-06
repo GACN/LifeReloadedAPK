@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.gaclove.lifereloadedapk" versionCode="15" versionName="15.0-final-icon-tested">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.gaclove.lifereloadedapk" versionCode="16" versionName="16.0-mimo-reasoning-compat">
     <uses-sdk minSdkVersion="23" targetSdkVersion="35" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
