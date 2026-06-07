@@ -44,8 +44,13 @@ function localEvent(){const pool=[['旧收音机里的远方','你在旧货摊�
 
 function normalizeOptions(ev){if(!ev)ev={};let text=String(ev.text||ev.content||'').replace(/\r/g,'').trim();let opts=Array.isArray(ev.options)?ev.options.filter(Boolean).map(x=>String(x).trim()).filter(Boolean):[];
 function cleanOpt(x){return String(x||'').replace(/^【?特殊】?\s*/,'【特殊】').replace(/[。；;\s]+$/,'').trim()}
-if(opts.length<2){let src=text.replace(/([；;])\s*(?=(?:[1-5一二三四五]|[①②③④⑤])[\.、\)）:：])/g,'\n');let lines=src.split(/\n+/).map(x=>x.trim()).filter(Boolean);let found=[];let clean=[];for(let line of lines){let m=line.match(/^(?:你要怎么做[？?]?\s*)?(?:选项\s*)?([1-5一二三四五])[\.、\)）:\：\s]+(.{2,140})$/);if(m){found.push(cleanOpt(m[2]));continue}m=line.match(/^(?:第[一二三四五]项|[①②③④⑤])\s*[\.、\)）:\：\s]*(.{2,140})$/);if(m){found.push(cleanOpt(m[1]));continue}clean.push(line)}if(found.length>=2){opts=found;text=clean.join('\n\n').trim()||text}}
-if(opts.length<2){let simple=text.replace(/([；;])\s*(?=[1-5][\.、\)）])/g,'\n');let found=[];for(let part of simple.split(/\n+/)){let m=part.trim().match(/(?:^|.*?[。！？?：:\s])([1-5])[\.、\)）]\s*(.{2,120})$/);if(m)found.push(cleanOpt(m[2]))}if(found.length>=2){opts=found.slice(0,5);let cut=text.search(/[。！？?：:\s][1-5][\.、\)）]/);if(cut>0)text=text.slice(0,cut+1).trim()}}
+if(opts.length<2){let src=text.replace(/([；;])\s*(?=(?:[1-5一二三四五]|[①②③④⑤])[\.、\)）:：])/g,'\n');let lines=src.split(/\n+/).map(x=>x.trim()).filter(Boolean);let found=[];let clean=[];for(let line of lines){let m=line.match(/(?:^|.*?[。！？?：：\s])([1-5一二三四五])[\.、\)）:\：\s]+(.{2,200})$/);if(m){found.push(cleanOpt(m[2]));continue}m=line.match(/(?:第[一二三四五]项|[①②③④⑤])\s*[\.、\)）:\：\s]*(.{2,200})$/);if(m){found.push(cleanOpt(m[1]));continue}clean.push(line)}if(found.length>=2){opts=found;text=clean.join('\n\n').trim()||text}}
+if(opts.length<2){let found=[];
+let prepped=text.replace(/[；;]\s*(?=[1-5][\.、\)）])/g,'\n');
+let raw=[...prepped.matchAll(/(?:^|\n|[：:])\s*([1-5])[\.、\)）\-：:]\s*(.{2,200})/gm)];
+if(raw.length>=2){
+  found=raw.map(m=>cleanOpt(m[2]));
+}if(found.length>=2){opts=found.slice(0,5);let cut=text.search(/[。！？?：:\s][1-5][\.、\)）]/);if(cut>0)text=text.slice(0,cut+1).trim()}}
 if(opts.length<5){let defaults=['谨慎观察局势','主动争取机会','找人帮忙打听','投入时间学习','用当前资源开挂解决'];opts=[...opts,...defaults].slice(0,5)}
 return {text,options:opts.slice(0,5)}
 }
