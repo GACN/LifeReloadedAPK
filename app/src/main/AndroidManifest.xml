@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.gaclove.lifereloadedapk" versionCode="20" versionName="20.0-model-hardfix">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.gaclove.lifereloadedapk" versionCode="21" versionName="21.0-fetch-models-autofix">
     <uses-sdk minSdkVersion="23" targetSdkVersion="35" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
