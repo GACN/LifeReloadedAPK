@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.gaclove.lifereloadedapk" versionCode="17" versionName="17.0-mimo-defaults">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.gaclove.lifereloadedapk" versionCode="18" versionName="18.0-regex-fix-4096">
     <uses-sdk minSdkVersion="23" targetSdkVersion="35" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
