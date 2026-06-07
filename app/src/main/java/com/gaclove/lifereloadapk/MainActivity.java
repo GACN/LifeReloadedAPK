@@ -95,7 +95,7 @@ public class MainActivity extends Activity {
                     if (base.length() == 0) throw new Exception("Base URL 为空");
                     if (apiKey == null || apiKey.trim().length() == 0) throw new Exception("API Key 为空");
                     if (payloadJson == null || payloadJson.length() == 0) throw new Exception("请求体为空");
-                    conn.setConnectTimeout(15000); conn.setReadTimeout(60000);
+                    conn.setConnectTimeout(30000); conn.setReadTimeout(180000);
                     conn.setRequestMethod("POST"); conn.setDoOutput(true);
                     conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
                     conn.setRequestProperty("Authorization", "Bearer " + apiKey);
